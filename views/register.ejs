@@ -1,0 +1,30 @@
+
+<% include ./partials/auth_header %> 
+
+<div class="container">
+    <h1 class="text-center mt-4">הרשמה</h1>
+    <hr>
+    <div class="row">
+        <div class="contain">
+            <form action="/register" method="POST">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="username" placeholder="שם משתמש">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password" placeholder="סיסמא">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="adminCode" placeholder="קוד מנהל">
+                    <small class="text-muted">
+                        אם הינך משתמש רגיל דלג ולחץ על "הרשם"
+                    </small>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-block">הרשם</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<% include ./partials/auth_footer %> 

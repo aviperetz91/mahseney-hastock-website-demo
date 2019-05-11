@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="vendors/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resources/css/cart.css">
+    <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">
+    
+	<title> מחסני הסטוק </title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/resources/favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/resources/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/resources/favicons/favicon-16x16.png">
+	<link rel="manifest" href="/resources/favicons/site.webmanifest">
+	<link rel="mask-icon" href="/resources/favicons/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="/resources/favicons/favicon.ico">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="msapplication-config" content="/resources/favicons/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <nav class="navbar fixed-top navbar-expand-xl navbar-dark">
+        <a class="navbar-brand" href="#"><img id="logo-nav" src="resources/img/mstock.jpg" alt="logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    מחלקות
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/plastic-products">כלי פלסטיק</a>
+                        <a class="dropdown-item" href="/disposable-products">חד פעמי</a>
+                        <a class="dropdown-item" href="/kitchen-products">מטבח ואפייה</a>
+                        <a class="dropdown-item" href="/tools">כלי עבודה</a>
+                        <a class="dropdown-item" href="/cleaning-products">מוצרי ניקיון</a>
+                        <a class="dropdown-item" href="/appliances">מוצרי חשמל</a>
+                        <a class="dropdown-item" href="/furnishings">ריהוט ונוי</a>
+                        <a class="dropdown-item" href="/bath-products">אמבט</a>
+                        <a class="dropdown-item" href="/textile-products">טקסטיל לבית</a>
+                        <a class="dropdown-item" href="/toys">צעצועים</a>
+                    </div>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">ראשי <span class="sr-only">(current)</span></a>
+                </li>
+                <li>
+                    <a class="nav-link" href="/cart"> <!-- <i class="fas fa-shopping-cart"></i>  --> המועדפים שלי <span class="sr-only"></span></a>
+                </li> 
+            </ul>
+            <ul class="navbar-nav">
+                <% if(!currentUser) { %>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/login">התחבר</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">הרשם</a>
+                    </li>
+                <% } else { %>
+                    <li>
+                    	<a class="nav-link" href="#"> <%= currentUser.username %> </a>
+                    </li>      
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">התנתק</a>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+    </nav>

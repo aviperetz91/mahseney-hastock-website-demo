@@ -1,0 +1,64 @@
+
+<% include ../partials/dept_header %>
+
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1 class="display-5"><%= title %></h1>
+        <form class="form-inline" action="/<%= dept %>" method="GET">
+            <div class="form-group mx-auto mt-3">
+                <input class="form-control mr-1 " type="text" name="search" placeholder="חפש במחלקה">
+                <button class="btn btn-danger my-2 my-sm-0">חפש</button>
+            </div>
+        </form>
+        <% if(!currentUser) { %>
+    
+        <% } else if(currentUser.isAdmin)  { %>
+            <a class="btn btn-sm btn-light mt-3" href="/<%= dept %> /new">הוסף מוצר</a>
+        <% } %>
+    </div>
+</div>
+
+<div class="container">
+    <% if(error && error.length > 0) { %>
+        <div class="alert alert-danger" role="alert">
+        <%= error %>
+        </div>
+    <% } %>
+</div>
+
+<div class="container">
+    <div class="row mb-3">
+        <% products.forEach(function(product) { %>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="card mx-2 mx-sm-0">
+                <img class="card-img-top px-2" src="<%= product.image %>" alt="Card image cap">
+                <div class="card-body">
+                    <hr>
+                    <h6 class="card-title">
+                        <strong> <%= product.name %></strong> -
+                        <br>
+                        <%= product.price %> ש"ח
+                    </h6>
+                    <% if(!currentUser) { %>
+                        <a href="/cart" class="btn btn-sm btn-danger">הוסף למועדפים</a>
+                    <% } else if(currentUser.isAdmin) { %>
+                        <a href="/<%= dept %>/<%= product._id %>/edit" class="btn btn-sm btn-success">ערוך</a>
+                        <form id="delete-form" action="/<%= dept %>/<%= product._id %>?_method=DELETE" method="POST">
+                            <button id="del" class="btn btn-sm btn-danger">מחק</button>
+                        </form>
+                        <form action="/<%= dept %>/<%= currentUser._id %>/<%= product._id %>" method="POST">
+                            <button class="btn btn-sm btn-danger mt-2">הוסף למועדפים</button>
+                        </form>
+                    <% } else { %>
+                        <form action="/<%= dept %>/<%= currentUser._id %>/<%= product._id %>" method="POST">
+                            <button class="btn btn-sm btn-danger mt-sm-1">הוסף למועדפים</button>
+                        </form>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</div>
+
+<% include ../partials/dept_footer %>   

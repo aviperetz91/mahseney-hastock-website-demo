@@ -1,0 +1,28 @@
+
+<% include ../partials/new-edit_header %>
+
+<div class="container">
+    <h1 class="text-center mt-4">הזן מוצר חדש</h1>
+    <div class="row">
+        <div class="contain">
+            <form action="/<%= dept %>" method="POST" enctype="multipart/form-data">   <!-- The 'enctype' thats what allows to have the file upload feature -->
+                <div class="form-group">
+                    <input class="form-control" type="text" name="product[name]" placeholder="שם מוצר">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="product[price]" placeholder="מחיר">
+                </div>
+                <div class="form-group" style="display: inline-flex">
+                    <label class="mr-2" for="image">תמונה: </label>
+                    <input id="image" type="file" name="image" accept="image/*" required>   <!-- The 'accept' is for that we can't upload by default any files other then image files -->
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-block">הוספה</button>
+                </div>
+            </form>
+            <a href="/<%= dept %>">חזור</a>
+        </div>
+    </div>
+</div>        
+
+<% include ../partials/new-edit_footer %>  

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<meta name="description" content="במחסני הסטוק תוכלו למצוא מגוון של מוצרים לבית ולמשפחה במחירים זולים במיוחד. כלי בית, כלי מטבח ואפייה, מוצרים חד פעמיים, ריהוט ואביזרי נוי, צעצועים, מוצרי חשמל, מוצרי ניקיון, טקסטיל לבית, כלי עבודה לבית ולגינה, משחקים לכל הגילאים ועוד...">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="vendors/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="vendors/css/owl.carousel.min.css">        
+    <link rel="stylesheet" type="text/css" href="vendors/css/owl.theme.default.min.css"> 
+	<link rel="stylesheet" type="text/css" href="resources/css/home.css">
+	<link rel="stylesheet" href="resources/css/homequeries.css">
+	
+	<title>מחסני הסטוק</title>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/resources/favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/resources/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/resources/favicons/favicon-16x16.png">
+	<link rel="manifest" href="/resources/favicons/site.webmanifest">
+	<link rel="mask-icon" href="/resources/favicons/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="/resources/favicons/favicon.ico">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="msapplication-config" content="/resources/favicons/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+
+</head>
+<body>
+	<header id="home">
+		<div class="jumbotron jumbotron-fluid">
+			<!-- <div class="container"> -->
+			<nav class="navbar navbar-expand-xl navbar-dark">
+				<a class="navbar-brand" href="#"><img id="logo-nav" src="resources/img/mstock.jpg" alt="logo"></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<i class="fas fa-bars"></i>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item dropdown">
+							<a class="nav-link-dropdown dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							מחלקות
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="/plastic-products">כלי פלסטיק</a>
+								<a class="dropdown-item" href="/disposable-products">חד פעמי</a>
+								<a class="dropdown-item" href="/kitchen-products">מטבח ואפייה</a>
+								<a class="dropdown-item" href="/tools">כלי עבודה</a>
+								<a class="dropdown-item" href="/cleaning-products">מוצרי ניקיון</a>
+								<a class="dropdown-item" href="/appliances">מוצרי חשמל</a>
+								<a class="dropdown-item" href="/furnishings">ריהוט ונוי</a>
+								<a class="dropdown-item" href="/bath-products">אמבט</a>
+								<a class="dropdown-item" href="/textile-products">טקסטיל לבית</a>
+								<a class="dropdown-item" href="/toys">צעצועים</a>
+							</div>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="#home">ראשי
+								<span class="sr-only">(current)</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#about">אודות</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#sales">מבצעים</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#gallery">גלריה</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#branches">סניפים</a>
+						</li>
+						<li class="nav-item mr-auto">
+							<a class="nav-link" href="#contact">צור קשר</a>
+						</li>
+						<li id="nav-favorits">
+							<a class="nav-link" href="/cart">המועדפים שלי<span class="sr-only"></span></a>
+						</li> 
+					</ul>
+					<ul class="navbar-nav">
+					<% if(!currentUser) { %>
+						<li class="nav-item ">
+							<a class="nav-link" href="/login">התחבר</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/register">הרשם</a>
+						</li>
+                	<% } else { %>
+						<li>
+                        	<a class="nav-link" href="#"> <%= currentUser.username %> </a>
+                    	</li>   
+						<li class="nav-item">
+							<a class="nav-link" href="/logout">התנתק</a>
+						</li>
+                	<% } %>
+					</ul>
+				</div>
+			</nav>
+			<!-- </div> -->
+			
+			<div class="container">
+				<div class="hero-box">
+                	<div class="title">
+						<h1>
+							ברוכים הבאים למחסני הסטוק
+							<br>
+							כל מה שצריך לבית.
+							<br>
+							מוצרים גדולים במחירים קטנים!
+						</h1>
+					</div>     
+		       
+                	<div class="categories">
+                	    <div class="row justify-content-center">
+                	        <div class="col-lg-1 col-md-2 col-sm-3 col-4">
+                	            <div class="icons-box">
+                	                <i class="fas fa-archive icon-big"></i>
+                	            </div>
+                	            <div class="category-box">
+                	                <a class="category" href="/plastic-products">כלי פלסטיק</a>
+                	            </div>
+                	        </div>
+						
+                	        <div class="col-lg-1 col-md-2 col-sm-3 col-4">
+                	            <div class="icons-box">
+                	                <i class="fas fa-utensils icon-big"></i>
+                	            </div>
+                	            <div class="category-box">
+                	                <a class="category" href="/disposable-products">חד פעמי</a>
+                	            </div>
+                	        </div>
+						
+                	        <div class="col-lg-1 col-md-2 col-sm-3 col-4">
+                	            <div class="icons-box">
+                	                <i class="fas fa-cookie-bite icon-big"></i>
+                	            </div>
+                	            <div class="category-box">
+                	                <a class="category" href="/kitchen-products">מטבח ואפייה</a>
+                	            </div>
+                	        </div>
+						
+                	        <div class="col-lg-1 col-md-2 col-sm-3 col-4">
+                	            <div class="icons-box">
+                	                <i class="fas fa-hammer icon-big"></i>
+                	            </div>
+                	            <div class="category-box">
+                	                <a class="category" href="/tools">כלי עבודה</a>
+                	            </div>
+                	        </div>
+						
+                	        <div class="col-lg-1 col-md-2 col-sm-3 col-4">
+                	            <div class="icons-box">
+                	                <i class="fas fa-brush icon-big"></i>
+                	            </div>
+                	            <div class="category-box">
+                	                <a class="category" href="/cleaning-products">מוצרי ניקיון</a>
+                	            </div>
+                	        </div>
+						
+                	        <div class="col-lg-1 col-md-2 col-sm-3 col-4">
+                	            <div class="icons-box">
+                	                <i class="fas fa-blender icon-big"></i>
+                	            </div>
+                	            <div class="category-box">
+                	                <a class="category" href="/appliances">מוצרי חשמל</a>
+                	            </div>
+                	        </div>
+						
+                	        <div class="col-lg-1 col-md-2 col-sm-3 col-4">
+                	            <div class="icons-box">
+                	                <i class="fas fa-chair icon-big"></i>
+                	            </div>
+                	            <div class="category-box">
+                	                <a class="category" href="/furnishings">ריהוט ונוי</a>
+                	            </div>
+                	        </div>
+						
+                	        <div class="col-lg-1 col-md-2 col-sm-3 col-4">
+                	            <div class="icons-box">
+                	                <i class="fas fa-bath icon-big"></i>
+                	            </div>
+                	            <div class="category-box ">
+                	                <a class="category" href="/bath-products">אמבט</a>
+                	            </div>
+                	        </div>
+						
+                	        <div class="col-lg-1 col-md-2 col-sm-3 col-4">
+                	            <div class="icons-box">
+                	                <i class="fas fa-bed icon-big"></i>
+                	            </div>
+                	            <div class="category-box">
+                	                <a class="category" href="/textile-products">טקסטיל</a>
+                	            </div>
+							</div> 
+							
+                	        <div class="col-lg-1 col-md-2 col-sm-3 col-4">
+                	            <div class="icons-box">
+                	                <i class="far fa-futbol icon-big"></i>
+                	            </div>
+                	            <div class="category-box">
+                	                <a class="category" href="/toys">צעצועים</a>
+                	            </div>
+							</div> 
+						</div>					
+					</div>
+					<a id="favorite-btn" class="btn-red" href="/cart">המועדפים שלי</a>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<section class="section-about" id="about">
+		<div>
+			<h2>אודות</h2>
+			<hr>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 text-center">
+					<img src="resources/img/logo.jpg" alt="logo">
+				</div>
+				<div class="col-lg-8">
+					<h5>ברוכים הבאים למחסני הסטוק - כל מה שצריך לבית!</h5>
+					<p>בסניפים של חברת מחסני הסטוק תוכלו למצוא מגוון של מוצרים לצריכה יומיומית למשפחה ולבית במחירים זולים במיוחד.
+						החל מכלי בית, כלי מטבח ואפייה, מוצרים חד פעמיים, ריהוט ואביזרי נוי, צעצועים, מוצרי חשמל, מוצרי ניקיון, טקסטיל לבית, כלי עבודה לבית ולגינה, משחקים לכל הגילאים ועוד... בואו להינות מחווית הקניה במחסני הסטוק שמתחילה בשירות
+						אדיב ומקצועי במתן פתרונות ומענה לכלל הצרכים של הלקוחות בסניף.
+						במחסני הסטוק הדגש הוא על המחיר, אנו מאמינים שכל אחד יוכל למצוא במחסני הסטוק את מבוקשו לפי תקציבו האישי.
+						אנו במחסני הסטוק דואגים לחדש באופן מתמיד ורציף את המוצרים בסניפים בכל המחלקות ובכך שומרים על מגוון עשיר של מוצרי צריכה במחירי סטוק שמאופיינים במחירים זולים ונמוכים במיוחד. מחסני הסטוק - מוצרים גדולים במחירים קטנים!
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<section class="section-sales" id="sales">
+        <div class="container">
+            <h2>מבצעים חמים</h2>
+        </div>
+        <hr>
+        <div class="pl-2 pr-2 owl-carousel owl-theme">
+            <div><img src="resources/img/i17.jpg" alt="slider img"><h3>מצעים - 2 ב-150 ש"ח</h3></div>
+            <div><img src="resources/img/i6.jpg" alt="slider img"><h3>מחירים מטורפים על מחלקת ריהוט ונוי</h3></div>
+			<div><img src="resources/img/i18.jpg" alt="slider img"><h3>עושים לכם פסח שמח</h3></div>
+			<div><img src="resources/img/i17.jpg" alt="slider img"><h3>מצעים - 2 ב-150 ש"ח</h3></div>
+            <div><img src="resources/img/i6.jpg" alt="slider img"><h3>מחירים מטורפים על מחלקת ריהוט ונוי</h3></div>
+            <div><img src="resources/img/i18.jpg" alt="slider img"><h3>עושים לכם פסח שמח</h3></div>
+        </div> 
+	</section>
+
+	<section class="section-gallery" id="gallery">
+		<div class="container">
+            <h2>גלרייה</h2>
+        </div>
+        <hr>
+		<div class="row m-1">
+			<div class="col-lg-3 col-md-4 col-sm-6">
+				<img src="resources/img/i244.jpg" class="img-gallery" alt="photo">
+			</div>
+			<div class="col-lg-3 col-md-4 col-sm-6">
+				<img src="resources/img/i7.jpg" class="img-gallery" alt="photo">
+			</div>
+			<div class="col-lg-3 col-md-4 col-sm-6">
+				<img src="resources/img/i5.jpg" class="img-gallery" alt="photo">
+			</div>
+			<div class="col-lg-3 col-md-4 col-sm-6">
+				<img src="resources/img/i4.jpg" class="img-gallery" alt="photo">
+			</div>
+			<div class="col-lg-3 col-md-4 col-sm-6">
+				<img src="resources/img/i12.jpg" class="img-gallery" alt="photo">
+			</div>
+			<div class="col-lg-3 col-md-4 col-sm-6">
+				<img src="resources/img/i3.jpg" class="img-gallery" alt="photo">
+			</div>
+			<div class="col-lg-3 col-md-4 col-sm-6">
+				<img src="resources/img/i212.jpg" class="img-gallery" alt="photo">
+			</div>
+			<div class="col-lg-3 col-md-4 col-sm-6">
+				<img src="resources/img/i2.jpg" class="img-gallery" alt="photo">
+			</div>
+			<div class="col-lg-3 col-md-4 col-sm-6">
+				<img src="resources/img/i10.jpg" class="img-gallery" alt="photo">
+			</div>
+			<div class="col-lg-3 col-md-4 col-sm-6">
+				<img src="resources/img/i11.jpg" class="img-gallery" alt="photo">
+			</div>
+			<div class="col-lg-3 col-md-4 col-sm-6">
+				<img src="resources/img/i13.jpg" class="img-gallery" alt="photo">
+			</div>
+			<div class="col-lg-3 col-md-4 col-sm-6">
+				<img src="resources/img/i14.jpg" class="img-gallery" alt="photo">
+			</div>
+		</div>
+	</section>
+	
+	<section class="section-branches" id="branches">
+        <div class="container">
+            <h2>הסניפים שלנו</h2>
+        </div>
+		<hr>
+		<div class="container">
+			<div class="row justify-content-center m-3 m-sm-4 m-md-0 m-lg-0 m-xl-0">
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<div class="branch-box">
+						<div>
+							<h3>מחסני הסטוק באר-שבע</h3>
+						</div>
+						<div>
+							<img class="img-box" src="resources/img/ד.jpg" alt="branch-photo">
+						</div>
+						<div>
+							<div>
+								<i class="fas fa-map-marker-alt icon-small"></i>   
+								<p class="address">רחוב יצחק בן צבי 9</p>
+							</div>
+							<div>    
+								<i class="fas fa-phone-square icon-small"></i>
+								<p>ירון - 0537777554</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<div class="branch-box">
+						<div>
+							<h3>מחסני הסטוק אופקים</h3>
+						</div>
+						<div>
+							<img class="img-box" src="resources/img/ג.jpg" alt="branch-photo">
+						</div>
+						<div>
+							<div>
+								<i class="fas fa-map-marker-alt icon-small"></i>
+								<p class="address">רחוב הרצל 3 </p>
+							</div>
+							<div>
+								<i class="fas fa-phone-square icon-small"></i>
+								<p>יניב - 0508526612</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<div class="branch-box">
+						<div>
+							<h3>9.90 - מבית מחסני הסטוק</h3>
+						</div>
+						<div>
+							<img class="img-box" src="resources/img/ב.jpg" alt="branch-photo">
+						</div>
+						<div>
+							<div>
+								<i class="fas fa-map-marker-alt icon-small"></i>
+								<p class="address">רחוב יצחק בן צבי 11</p>
+							</div>
+							<div>    
+								<i class="fas fa-phone-square icon-small"></i>
+								<p>אייל - 0537434141</p>
+							</div>
+						</div>
+					</div>
+				</div>                  
+			</div>
+		</div>
+	</section>
+
+	<section class="section-form" id="contact">
+        <div class="container">
+            <h2>צרו קשר</h2>
+		</div>
+		<hr>
+        <div class="container">
+            <form class="contact-form" method="POST" action="#">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <label for="name">שם</label>
+                    </div>
+                    <div class="col-lg-8 col-md-8">
+                        <input type="text" name="name" id="name" placeholder="ישראל ישראלי" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <label for="contact-email">אימייל</label>
+                    </div>
+                    <div class="col-lg-8 col-md-8">
+                        <input type="email" name="contact-email" id="contact-email" placeholder="israel_israeli@gmail.com" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <label>נושא הפנייה</label>
+                    </div>
+                    <div class="col-lg-8 col-md-8">
+                        <select name="subject" id="subject">
+                            <option value="question" selected>שאלה</option>
+                            <option value="problem">בעיה</option>
+                            <option value="like">פרגון</option>
+                            <option value="other">אחר</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <label>תיאור הפנייה</label>
+                    </div>
+                    <div class="col-lg-8 col-md-8">
+                        <textarea name="message" id="meassage" placeholder="טקסט חופשי"></textarea>
+                    </div>
+				</div>
+				<div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <label>קבל הודעות?</label>
+                    </div> 
+                    <div class="col-lg-8 col-md-8">
+                        <input name="message" id="yes" type="radio" value="YES"> כן
+                        <input name="message" id="no" type="radio" value="NO"> לא
+                    </div>
+                </div>
+				<input type="submit" value="שלח!"/>              
+            </form>
+        </div>
+    </section>
+
+	<footer>
+		<div class="social">
+			<a href="#"><i id="whatsapp" class="fab fa-whatsapp icon-footer"></i></a>
+			<a href="#"><i id="instagram" class="fab fa-instagram icon-footer"></i></a>
+			<a href="https://www.facebook.com/%D7%9E%D7%97%D7%A1%D7%A0%D7%99-%D7%94%D7%A1%D7%98%D7%95%D7%A7-%D7%91%D7%A9-192929041057717/"><i id="facebook" class="fab fa-facebook-f icon-footer"></i></a>
+		</div> 
+		<div>
+			<img class="d-none d-xl-block" src="resources/img/logocut.jpg" alt="logo">
+		</div>
+        <div class="container">
+			<div class = "row footer-links">				
+				<div class="col-lg-4 col-md-5 col-sm-12">
+					<p class="col-title"><a class="link-title" href="#">אודות</a></p>
+					<div class="footernav-items">
+						<p class="content">
+						במחסני הסטוק תוכלו למצוא מגוון של מוצרים לשימוש יומיומי למשפחה ולבית במחירים זולים במיוחד.
+						בואו להינות מחווית הקניה במסחני הסטוק שמתחילה בשירות אדיב ומקצועי ומתן מענה לכלל הצרכים של הלקוחות.
+						במחסני הסטוק הדגש הוא על המחיר, אנו מאמינים שכל אחד יוכל למצוא את מבוקשו לפי תקציבו האישי.
+						אצלינו דואגים לחדש באופן מתמיד את המוצרים בכל המחלקות ובכך שומרים על מגוון עשיר של מוצרים שמאופיינים במחירים זולים במיוחד.
+						מחסני הסטוק - מוצרים גדולים במחירים קטנים!
+						</p>
+					</div>
+				</div>
+					  
+				<div class="col-lg-2 col-md-2 col-6">
+					<p class="col-title"><a class="link-title" href="#">מחלקות</a></p>
+					<div class="footernav-items">
+						<p class="footernav-item"><a class="link" href="/plastic-products">כלי פלסטיק</a></p>
+						<p class="footernav-item"><a class="link" href="/disposable-products">חד פעמי</a></p>
+						<p class="footernav-item"><a class="link" href="/kitchen-products">מטבח ואפייה</a></p>
+						<p class="footernav-item"><a class="link" href="/tools">כלי עבודה</a></p>
+						<p class="footernav-item"><a class="link" href="/cleaning-products">מוצרי ניקיון</a></p>
+						<p class="footernav-item"><a class="link" href="/appliances">מוצרי חשמל</a></p>
+						<p class="footernav-item"><a class="link" href="/furnishings">ריהוט ונוי</a></p>
+						<p class="footernav-item"><a class="link" href="/bath-products">אמבט</a></p>
+						<p class="footernav-item"><a class="link" href="/textile-products">טקסטיל</a></p>
+						<p class="footernav-item"><a class="link" href="/toys">צעצועים</a></p>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-6">
+					<p class="col-title"><a class="link-title" href="#branches">סניפים</a></p>
+					<div class="footernav-items">
+						<p class="footernav-item"><a class="link" href="#">מחסני הסטוק באר-שבע</a></p>
+						<p class="footernav-item"><a class="link" href="#">מחסני הסטוק אופקים</a></p>
+						<p class="footernav-item"><a class="link" href="#">9.90 - מבית מחסני הסטוק</a></p>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-6">
+					<div class = "others1">
+						<p class="col-title"><a class="link-title" href="#sales">מבצעים</a></p>
+						<p class="col-title"><a class="link-title" href="#gallery">גלריה</a></p>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-1 col-6">
+					<div class = "others2">
+						<p class="col-title"><a class="link-title" href="#contact">צור קשר</a></p>
+					</div>
+				</div>
+			</div>
+			<div>
+				<p id="copyright">
+					.Copyright &copy; 2019 by Avi Peretz. All rights reserved
+				</p>
+			</div>
+        </div>  
+    </footer>
+		
+
+
+	<script src="vendors/js/jquery-3.2.1.js"></script>
+	<script src="vendors/js/owl.carousel.js"></script>
+	<script src="vendors/js/bootstrap.min.js"></script>
+	<script src="vendors/js/jquery.waypoints.min.js"></script>
+	<!-- <script src="http://maps.google.com/maps/api/js"></script> -->
+	<!-- <script src="vendors/js/gmaps.js"></script> -->
+	<script src="resources/js/script.js"></script>
+</body>
+</html>

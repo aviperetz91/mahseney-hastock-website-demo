@@ -1,0 +1,37 @@
+
+<% include ./partials/cart_header %>  
+
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1>המוצרים שלי</h1>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row mb-3">
+        <% users.forEach(function(user) { %>
+            <% if(user._id.equals(currentUser._id)) { %>
+                <% user.favoriteProducts.forEach(function(product){ %> 
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="card mx-5 mx-sm-0">
+                            <img class="card-img-top" src=" <%= product.image %> " alt="Card image cap">
+                            <div class="card-body">
+                                <hr>
+                                <h6 class="card-title">
+                                    <strong> <%= product.name %> </strong> - 
+                                    <br>
+                                    <%= product.price %> ש"ח
+                                </h6>
+                                <form action="/<%= product._id %>?_method=DELETE" method="POST">
+                                    <button class="btn btn-sm btn-danger mt-sm-1">מחק</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } %>
+        <% }) %>
+    </div>
+</div>
+
+<% include ./partials/cart_footer %>  
