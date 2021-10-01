@@ -1,1 +1,1 @@
-link: https://mahseney-hastock-92765.herokuapp.com/
+link: https://mahseney-hastock-demo.herokuapp.com/
